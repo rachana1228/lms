@@ -1,0 +1,16 @@
+<!-- templates/index.html -->
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Courses</h1>
+<form action="/add_course" method="post">
+    <input type="text" name="title" placeholder="Course Title" required>
+    <textarea name="description" placeholder="Course Description" required></textarea>
+    <button type="submit">Add Course</button>
+</form>
+<ul>
+    {% for course in courses %}
+        <li><a href="/course/{{ course[0] }}">{{ course[1] }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
